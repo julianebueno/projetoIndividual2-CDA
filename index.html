@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="script.js" defer></script>
+    <title>Conversor de unidades</title>
+</head>
+<body>
+    <form id="meuFormulario">
+        <select name="categoria" id="categoria">
+            <option disabled selected hidden>Escolha</option>
+            <option id="comprimento">Comprimento</option>
+            <option id="peso">Peso</option>
+            <option id="temperatura">Temperatura</option>
+        </select>
+
+        <br>
+        <select name="unidadeEntrada" id="unidadeEntrada">
+            <option disabled selected>...</option>
+        </select>
+        <select name="unidadeSaida" id="unidadeSaida">
+            <option disabled selected>...</option>
+        </select>
+        
+        <br>
+        <input type="number" name="valor" id="valor" placeholder="Valor a converter">
+        
+        <br>
+        <button type="submit" id="botao">Converter</button>
+        
+        <br>
+        <input placeholder="Resultado convertido" id="saida">
+    </form>
+</body>
+</html>
+
+
+
+<!-- Você deve construir uma página web com lógica de funcionamento em JavaScript que contenha um formulário em HTML/CSS com os elementos:
+
+● Um campo numérico de entrada, onde a pessoa usuária poderá inserir o
+valor a ser convertido.
+
+● Três campos de seleção: um para selecionar a categoria, outro para a
+unidade de medida de origem e outro para a unidade de medida de destino.
+As opções de unidades de medida devem ser selecionáveis de forma
+dinâmica, utilizando JavaScript para atualizar as opções de destino com base
+na unidade de origem selecionada.
+□ As categorias e suas respectivas unidades de medida são:
+□ Comprimento: metros, centímetros, polegadas.
+□ Peso: quilogramas, gramas, libras.
+□ Temperatura: Celsius, Fahrenheit, Kelvin.
+
+● Um botão de "Converter" para realizar a conversão.
+
+● Um campo de saída para exibir o resultado da conversão. -->
