@@ -1,110 +1,83 @@
-function imprimeOpcoesComprimento(){
-    unidadeEntrada.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option>Metros</option>
-        <option>Centimetros</option>
-        <option>Polegadas</option>
-    `
-    unidadeSaida.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option disabled>Metros</option>
-        <option disabled>Centimetros</option>
-        <option disabled>Polegadas</option>
-    `
-}
+function imprimeOpcoes(lista){
+    unidadeEntrada.innerHTML = `<option disabled selected hidden>Escolha</option>`
 
-function imprimeOpcoesPeso(){
-    unidadeEntrada.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option>Quilogramas</option>
-        <option>Gramas</option>
-        <option>Libras</option>
-    `
-    unidadeSaida.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option disabled>Quilogramas</option>
-        <option disabled>Gramas</option>
-        <option disabled>Libras</option>
-    `
-}
-
-function imprimeOpcoesTemperatura(){
-    unidadeEntrada.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option>Celsius</option>
-        <option>Fahrenheit</option>
-        <option>Kelvim</option>
-    `
-    unidadeSaida.innerHTML = `
-        <option disabled selected hidden>Escolha</option>
-        <option disabled>Celsius</option>
-        <option disabled>Fahrenheit</option>
-        <option disabled>Kelvim</option>
-    `
-}
-
-
-
-
-
-
-
-
-
-//===================================================================================
-document.getElementById('categoria').addEventListener('change', function(event){
+    for (var i = 0; i < lista.length; i++){
+        var opcao = document.createElement("option")
+        opcao.innerText = `${lista[i]}`
+        unidadeEntrada.append(opcao)
+    }
+    
+    document.getElementById('unidadeEntrada').addEventListener('change', function(event){
     event.preventDefault()
 
-    //reset saida
-    var saida = document.getElementById('saida')
-    saida.value = ``
+    var escolha = event.target.selectedIndex
+    unidadeSaida.innerHTML = `<option disabled selected hidden>Escolha</option>`
 
+    for (var i = 0; i < lista.length; i++){
+        if (escolha - 1 != i) {    
+            var opcao = document.createElement("option")
+            opcao.innerText = `${lista[i]}`
+            unidadeSaida.append(opcao)
+        }
+    }
+
+})
+}
+
+function operacoesConversao(unidadeEntrada,unidadeSaida,valor){
+    //============================================================= Comprimento
+    // 1m = 100cm = 39.3701pol
+    if (unidadeEntrada == 'Metros'){ if (unidadeSaida == 'Centimetros') {return valor * 100} if (unidadeSaida == 'Polegadas') {return valor * 39.3701} } 
+    // 1cm = 0.01m = 0.393701pol
+    if (unidadeEntrada == 'Centimetros'){ if (unidadeSaida == 'Metros') {return valor * 0.01} if (unidadeSaida == 'Polegadas') {return valor * 0.393701}}
+    // 1pol = 0.0254m = 2.54cm
+    if (unidadeEntrada == 'Polegadas'){ if (unidadeSaida == 'Metros') {return valor * 0.0254} if (unidadeSaida == 'Centimetros') {return valor * 2.54}}
+    //============================================================= Peso
+    // 1kg = 1000g = 2.20462lb
+    if (unidadeEntrada == 'Quilogramas'){ if (unidadeSaida == 'Gramas') {return valor * 1000} if (unidadeSaida == 'Libras') {return valor * 2.20462} } 
+    // 1g = 0.001kg = 0.00220462lb
+    if (unidadeEntrada == 'Gramas'){ if (unidadeSaida == 'Quilogramas') {return valor * 0.001} if (unidadeSaida == 'Libras') {return valor * 0.00220462}}
+    // 1lb = 0.453592kg = 453.5920000001679g
+    if (unidadeEntrada == 'Libras'){ if (unidadeSaida == 'Quilogramas') {return valor * 0.453592} if (unidadeSaida == 'Gramas') {return valor * 453.5920000001679}}
+    //============================================================= Temperatura
+    // F = C * 1.8 + 32     // K = C + 273
+    if (unidadeEntrada == 'Celsius'){ if (unidadeSaida == 'Fahrenheit') {return valor * 1.8 + 32} if (unidadeSaida == 'Kelvin') {return valor * 1 + 273.15} } 
+    // C = (F-32) / 1.8     // K = (F-32) * 5/9 + 273
+    if (unidadeEntrada == 'Fahrenheit'){ if (unidadeSaida == 'Celsius') {return (valor-32) / 1.8} if (unidadeSaida == 'Kelvin') {return (valor-32) * 5/9 + 273.15}}
+    // C = K - 273          // F = (K-273) * 1.8 + 32
+    if (unidadeEntrada == 'Kelvin'){ if (unidadeSaida == 'Celsius') {return valor - 273.15} if (unidadeSaida == 'Fahrenheit') {return (valor-273.15) * 1.8 + 32}}
+}
+//===================================================================================
+
+
+document.getElementById('categoria').addEventListener('click', function(event){
+    event.preventDefault()
     //escolha de categoria
     var escolha = event.target.value
-    console.log('cat', escolha)   
+    // console.log('cat', escolha, event.target.selectedIndex)  
 
-    if (escolha == "Comprimento") {
-        imprimeOpcoesComprimento()
-    }
-    if (escolha == "Peso") {
-        imprimeOpcoesPeso()
-    }
-    if (escolha == "Temperatura") {
-        imprimeOpcoesTemperatura()
-    }   
+    var lista = []
+    if (escolha == "Comprimento")   { lista = ["Metros","Centimetros","Polegadas"]}
+    if (escolha == "Peso")          { lista = ["Quilogramas","Gramas","Libras"]}
+    if (escolha == "Temperatura")   { lista = ["Celsius","Fahrenheit","Kelvin"]}   
+    imprimeOpcoes(lista)
 })
-
-//tirar esse event? e fazer uma função padrão?
-document.getElementById('unidadeEntrada').addEventListener('change', function(event){
-    event.preventDefault()
-
-    //reset saida
-    var saida = document.getElementById('saida')
-    saida.value = ``
-
-    //escolha da unidade de entrada
-    var escolha = event.target.value
-    console.log('ent',escolha)   
-
-    if (escolha == "Comprimento") {
-        imprimeOpcoesComprimento()
-    }
-    if (escolha == "Peso") {
-        imprimeOpcoesPeso()
-    }
-    if (escolha == "Temperatura") {
-        imprimeOpcoesTemperatura()
-    }   
-})
-
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event){
     event.preventDefault()
 
-    //teste saida
+    var unidadeEntrada = document.getElementById('unidadeEntrada')
+    var unidadeSaida = document.getElementById('unidadeSaida')
+    var valor = document.getElementById('valor')
+
     var saida = document.getElementById('saida')
-    saida.value = `Teste tesultado`
+    var resultado = operacoesConversao(unidadeEntrada.value, unidadeSaida.value, valor.value)
+    saida.value = resultado.toFixed(2)
+
 })
+
+
+
 
 
 
@@ -113,8 +86,10 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
 
 
-
-
+//------------------------------------------------------------------
+// reset saida
+// var saida = document.getElementById('saida')
+// saida.value = `ERRO`
 //------------------------------------------------------------------
 // unidadeSaida.innerHTML = `
 //     <option disabled selected hidden>Escolha</option>
@@ -224,6 +199,12 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 // var escolha = document.getElementById("categoria").value
 //------------------------------------------------------------------
 
+/* Remove as setas de incremento/decremento nos campos de número /
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;    / Remove a aparência padrão /
+  margin: 0;     / Remove qualquer margem adicional */
 
 //------------------------------------------------------------------
 
