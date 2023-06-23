@@ -5,49 +5,91 @@
 body{
     background-color: black;
     color: white;
-    /* display: flex;
+    height: 90vh;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem; */
-    
-    /* border: solid black; */
+    padding: 1rem;
 }
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* padding: 1rem; */
-    width: 100%;
+    padding: 1rem;
+    width: 90vw;
     border: solid red;
 }
-section{
-    padding: .5rem;
-    width: 90%;
-}
-.selecoes{
-    display: grid;
-    /* grid-template-rows: 1fr 1fr; */
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    height: 5rem;
+
+#categoria{
+    margin: .5rem;
+    width: 20rem;
     border: solid fuchsia;
-    
 }
-.entrada{
+.medidas{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    height: 5rem;
+    justify-content: space-around;
+    margin: .5rem;
+    padding: 0;
+    width: 20rem;
     border: solid orange;
 }
-.saida{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 5rem;
+#unidadeEntrada, #unidadeSaida{
+    width: 40%;
+}
+#valor{
+    margin: .5rem;
+    border: solid purple;
+}
+/* Remove as setas de incremento/decremento nos campos de número  */
+#valor::-webkit-inner-spin-button, #valor::-webkit-outer-spin-button {
+    -webkit-appearance: none;    / Remove a aparência padrão /
+    margin: 0;     / Remove qualquer margem adicional
+}
+
+
+
+
+
+
+
+
+
+button{
+    margin: .5rem;
+    border: solid blue;
+}
+
+#saida{
+    margin: .5rem;
     border: solid green;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* select{
+    width: 90%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    height: 5rem;
+    
+} */

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Conversor de unidades</title>
 </head>
@@ -16,22 +16,20 @@
             <option id="temperatura">Temperatura</option>
         </select>
 
-        <br>
-        <select name="unidadeEntrada" id="unidadeEntrada">
-            <option disabled selected>...</option>
-        </select>
-        <select name="unidadeSaida" id="unidadeSaida">
-            <option disabled selected>...</option>
-        </select>
+        <div class="medidas">
+            <select name="unidadeEntrada" id="unidadeEntrada">
+                <option disabled selected>...</option>
+            </select>
+            <select name="unidadeSaida" id="unidadeSaida">
+                <option disabled selected>...</option>
+            </select>
+        </div>
         
-        <br>
-        <input type="number" name="valor" id="valor" placeholder="Valor a converter">
+        <input type="number" name="valor" id="valor" placeholder="Valor a converter" required>
         
-        <br>
         <button type="submit" id="botao">Converter</button>
         
-        <br>
-        <input placeholder="Resultado convertido" id="saida">
+        <input disabled placeholder="Resultado convertido" id="saida">
     </form>
 </body>
 </html>
