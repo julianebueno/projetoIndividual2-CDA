@@ -4,14 +4,12 @@
     margin: 0;
 }
 body{
-    background-image: url("img/fundo.gif");
+    background-image: url("img/pexels-adrien-olichon-2387793.jpg");
     color: #eee;
-    height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     font-family:Arial, Helvetica, sans-serif;
 }
 /* ------------------------------------------------ Titulo */
@@ -43,7 +41,7 @@ form * {
     width: 20rem;
     transition: .5s;
 }
-/* ------------------------------------------------ T */
+/* ------------------------------------------------ Itens do form */
 input, option, #categoria{
     text-align: center;
 }
@@ -56,14 +54,17 @@ input, option, #categoria{
 #unidadeEntrada, #unidadeSaida{
     width: 48%;
 }
-#inverter{
+/* Botão para inverter as unidades de medidas */
+/* Ps.: em construção */
+/* #inverter{
     width: 2rem;
-}
+} */
+
 /* Remove as setas de incremento/decremento nos campos de número  */
 #valor::-webkit-inner-spin-button {
     -webkit-appearance: none; /* Remove a aparência padrão */
 }
-
+/* botão de submit para converter */
 #botao{
     width: 10rem;
     font-size:medium;
@@ -81,6 +82,7 @@ input, option, #categoria{
     0% {background-position-x: 0%;}
     100% {background-position-x: 100%;}
 }
+/* campo para imprimir o resultado */
 #saida{
     border: solid #060;
     color: #fff5;
@@ -88,34 +90,12 @@ input, option, #categoria{
     align-items: center;
     justify-content: center;
 }
-
+/* Responsividade para telas menores de 500px */
 @media (max-width: 500px) {
     form{
         width: 70vw;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -139,6 +119,18 @@ input, option, #categoria{
 }
 .meme > img{
     opacity: 40%;
+    padding: 1rem;
+    width: 2rem;
+    border-radius: 25px;
+}
+.meme1{
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    width: 100%;
+}
+.meme1 > img{
+    /* opacity: 40%; */
     padding: 1rem;
     width: 2rem;
     border-radius: 25px;
