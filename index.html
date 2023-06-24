@@ -8,19 +8,21 @@
     <title>Conversor de unidades</title>
 </head>
 <body>
+    <h1>Conversor de Unidades</h1>
     <form id="meuFormulario">
-        <select name="categoria" id="categoria">
-            <option disabled selected hidden>Escolha</option>
+        <select name="categoria" id="categoria" required>
+            <option disabled selected hidden>Escolha uma categoria</option>
             <option id="comprimento">Comprimento</option>
             <option id="peso">Peso</option>
             <option id="temperatura">Temperatura</option>
         </select>
 
         <div class="medidas">
-            <select name="unidadeEntrada" id="unidadeEntrada">
+            <select name="unidadeEntrada" id="unidadeEntrada" required>
                 <option disabled selected>...</option>
             </select>
-            <select name="unidadeSaida" id="unidadeSaida">
+            <!-- <button type="button" id="inverter"> <> </button> -->
+            <select name="unidadeSaida" id="unidadeSaida" required>
                 <option disabled selected>...</option>
             </select>
         </div>
@@ -29,8 +31,11 @@
         
         <button type="submit" id="botao">Converter</button>
         
-        <input disabled placeholder="Resultado convertido" id="saida">
+        <div id = saida>Resultado</div>
     </form>
+    <div class="meme">
+        <img src="/img/lula_molusco.gif" alt="easter egg do lula molusco dançando">
+    </div>
 </body>
 </html>
 
