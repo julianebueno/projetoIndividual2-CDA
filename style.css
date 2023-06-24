@@ -1,71 +1,98 @@
+/* ------------------------------------------------ Geral e Body */
 *{
     padding: 0;
     margin: 0;
 }
 body{
-    background-color: black;
-    color: white;
+    background-image: url("/img/giphy.gif");
+    color: #eee;
     height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    font-family:Arial, Helvetica, sans-serif;
 }
+/* ------------------------------------------------ Titulo */
+h1{
+    margin-top: 3rem;
+    text-shadow: 2px 2px #0009, -1px -1px #060;
+}
+/* ------------------------------------------------ Caixa do form */
 form{
+    background-color: #2228;
+    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    width: 90vw;
-    border: solid red;
+    padding: 3rem;
+    border-radius: 30px;
+    
+    /* border: solid red; */
 }
-
-#categoria{
-    margin: .5rem;
+/* ------------------------------------------------ Todos dentro do form */
+form * {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: .2rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
     width: 20rem;
-    border: solid fuchsia;
+    transition: .5s;
+}
+/* ------------------------------------------------ T */
+input, option, #categoria{
+    text-align: center;
 }
 .medidas{
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    margin: .5rem;
-    padding: 0;
-    width: 20rem;
-    border: solid orange;
+    justify-content: space-between;
+    /* border: solid orange; */
 }
 #unidadeEntrada, #unidadeSaida{
-    width: 40%;
+    width: 48%;
 }
-#valor{
-    margin: .5rem;
-    border: solid purple;
+#inverter{
+    width: 2rem;
 }
 /* Remove as setas de incremento/decremento nos campos de número  */
-#valor::-webkit-inner-spin-button, #valor::-webkit-outer-spin-button {
-    -webkit-appearance: none;    / Remove a aparência padrão /
-    margin: 0;     / Remove qualquer margem adicional
+#valor::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove a aparência padrão */
 }
 
-
-
-
-
-
-
-
-
-button{
-    margin: .5rem;
-    border: solid blue;
+#botao{
+    width: 10rem;
+    font-size:medium;
+    text-shadow: 1px 1px #0009;
+    color: white;
+    background-image: linear-gradient(to left, #060, #ab0205);
+    animation: button 2s infinite alternate;
+    background-size: 200% 100%;
+    border-radius: 20px;
 }
-
+#botao:hover{
+    scale: 1.07;
+}
+@keyframes button {
+    0% {background-position-x: 0%;}
+    100% {background-position-x: 100%;}
+}
 #saida{
-    margin: .5rem;
-    border: solid green;
+    border: solid #060;
+    color: #fff5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 500px) {
+    form{
+        width: 70vw;
+    }
 }
 
 
@@ -79,6 +106,43 @@ button{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.meme{
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    width: 100%;
+}
+.meme > img{
+    opacity: 40%;
+    padding: 1rem;
+    width: 2rem;
+    border-radius: 25px;
+}
 
 
 
