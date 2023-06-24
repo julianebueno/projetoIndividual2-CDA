@@ -1,5 +1,5 @@
 function imprimeOpcoes(lista){
-    unidadeEntrada.innerHTML = `<option disabled selected hidden>Escolha</option>`
+    unidadeEntrada.innerHTML = `<option disabled selected hidden>Escolha uma medida</option>`
 
     for (var i = 0; i < lista.length; i++){
         var opcao = document.createElement("option")
@@ -11,7 +11,7 @@ function imprimeOpcoes(lista){
     event.preventDefault()
 
     var escolha = event.target.selectedIndex
-    unidadeSaida.innerHTML = `<option disabled selected hidden>Escolha</option>`
+    unidadeSaida.innerHTML = `<option disabled selected hidden>Escolha uma medida</option>`
 
     for (var i = 0; i < lista.length; i++){
         if (escolha - 1 != i) {    
@@ -20,7 +20,6 @@ function imprimeOpcoes(lista){
             unidadeSaida.append(opcao)
         }
     }
-
 })
 }
 
@@ -50,7 +49,7 @@ function operacoesConversao(unidadeEntrada,unidadeSaida,valor){
 //===================================================================================
 
 
-document.getElementById('categoria').addEventListener('click', function(event){
+document.getElementById('categoria').addEventListener('change', function(event){
     event.preventDefault()
     //escolha de categoria
     var escolha = event.target.value
@@ -69,15 +68,17 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     var unidadeEntrada = document.getElementById('unidadeEntrada')
     var unidadeSaida = document.getElementById('unidadeSaida')
     var valor = document.getElementById('valor')
-
-    var saida = document.getElementById('saida')
+    
     var resultado = operacoesConversao(unidadeEntrada.value, unidadeSaida.value, valor.value)
-    saida.value = resultado.toFixed(2)
-
+    
+    var saida = document.getElementById('saida')
+    if (unidadeEntrada.selectedIndex === 0 || unidadeSaida.selectedIndex === 0) {
+        alert("preencha os campos")
+    } else {
+        saida.style.color = "white"
+        saida.innerText = resultado.toFixed(2)
+    }
 })
-
-
-
 
 
 
