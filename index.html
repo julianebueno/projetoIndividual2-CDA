@@ -10,55 +10,34 @@
 <body>
     <h1>Conversor de Unidades</h1>
     <form id="meuFormulario">
-        <select name="categoria" id="categoria" required>
+        
+        <select name="categoria" id="categoria" required> <!-- escolha de categoria de medidas -->
             <option disabled selected hidden>Escolha uma categoria</option>
             <option id="comprimento">Comprimento</option>
             <option id="peso">Peso</option>
             <option id="temperatura">Temperatura</option>
         </select>
 
-        <div class="medidas">
+        <div class="medidas"> <!-- escolha de unidades de medidas -->
             <select name="unidadeEntrada" id="unidadeEntrada" required>
-                <option disabled selected>...</option>
+                <option disabled selected>...</option> <!-- mais opções geradas no js -->
             </select>
-            <!-- <button type="button" id="inverter"> <> </button> -->
             <select name="unidadeSaida" id="unidadeSaida" required>
-                <option disabled selected>...</option>
+                <option disabled selected>...</option> <!-- mais opções geradas no js -->
             </select>
         </div>
         
+        <!-- entrada do valor a ser convertido -->
         <input type="number" name="valor" id="valor" placeholder="Valor a converter" required>
+
+        <button type="submit" id="botao">Converter</button> <!-- botão para enviar o form para o js converter-->
+
+        <div id = saida>Resultado</div> <!-- espaço para imprimir o resultado -->
         
-        <button type="submit" id="botao">Converter</button>
-        
-        <div id = saida>Resultado</div>
     </form>
-    <!-- <div class="meme">
+    
+    <div class="meme"> <!-- alivio cómico -->
         <img src="img/meme.gif" alt="easter egg do lula molusco dançando">
-    </div> -->
-    <div class="meme1">
-        <img src="img/fundo.gif" alt="teste de gif">
     </div>
 </body>
 </html>
-
-
-
-<!-- Você deve construir uma página web com lógica de funcionamento em JavaScript que contenha um formulário em HTML/CSS com os elementos:
-
-● Um campo numérico de entrada, onde a pessoa usuária poderá inserir o
-valor a ser convertido.
-
-● Três campos de seleção: um para selecionar a categoria, outro para a
-unidade de medida de origem e outro para a unidade de medida de destino.
-As opções de unidades de medida devem ser selecionáveis de forma
-dinâmica, utilizando JavaScript para atualizar as opções de destino com base
-na unidade de origem selecionada.
-□ As categorias e suas respectivas unidades de medida são:
-□ Comprimento: metros, centímetros, polegadas.
-□ Peso: quilogramas, gramas, libras.
-□ Temperatura: Celsius, Fahrenheit, Kelvin.
-
-● Um botão de "Converter" para realizar a conversão.
-
-● Um campo de saída para exibir o resultado da conversão. -->
