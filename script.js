@@ -58,6 +58,9 @@ function operacoesConversao(unidadeEntrada,unidadeSaida,valor){
 // ********************************************** Ouvinte da categoria de medida, para atualizar as opções caso for mudado
 document.getElementById('categoria').addEventListener('change', function(event){
     event.preventDefault()
+    // reset da unidade de saida se categoria for mudada
+    var unidadeSaida = document.getElementById('unidadeSaida')
+    unidadeSaida.innerHTML = `<option disabled selected>...</option>`
     // escolha de categoria
     var escolha = event.target.value
     // conforme a escolha de categoria, o array lista recebe as unidades de medidas específicas
