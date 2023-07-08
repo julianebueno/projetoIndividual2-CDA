@@ -5,7 +5,7 @@
 }
 /* -------------------------------------------- Body e geral*/
 body{
-    background-image: url("img/fundo.gif");
+    background-image: url("src/img/fundo.gif");
     background-repeat: repeat;
     height: 100%;
     width: 100%;
