@@ -5,26 +5,58 @@
 }
 /* -------------------------------------------- Body e geral*/
 body{
-    background-image: url("src/img/fundo.gif");
-    background-repeat: repeat;
-    height: 100%;
-    width: 100%;
-    color: #eee;
+    /* background-image: url("/src/img/fundo.gif"); */
+    /* background-repeat: repeat; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: #222;
+    color: #eee;
     font-family:Arial, Helvetica, sans-serif;
 }
-/* -------------------------------------------- Titulo */
-h1{
-    margin-top: 3rem;
+body::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #e00408;
+    left: 20%;
+    top: 20%;
+    filter: blur(150px);
+}
+body::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #060;
+    left: 70%;
+    top: 70%;
+    filter: blur(150px);
+}
+/* -------------------------------------------- Header */
+header{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 100%;
+    padding-top: 1rem;
+}
+header > h1{
+    margin: 1rem 0;
     text-shadow: 2px 2px #0009, -1px -1px #060;
 }
-/* -------------------------------------------- Caixa do form */
+/* ---------------------------------- Espaço principal */
+main{
+    flex-grow: 1;
+}
+/* ---------------------------------- Caixa do form */
 form{
-    background-color: #2228;
-    backdrop-filter: blur(5px);
+    background-color: #0005;
+    /* backdrop-filter: blur(5px); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +64,7 @@ form{
     padding: 3rem;
     border-radius: 30px;
 }
-/* -------------------------------------------- Todos os itens dentro do form */
+/* ---------------------------------- Todos os itens dentro do form */
 form * {
     margin-top: .5rem;
     margin-bottom: .5rem;
@@ -43,7 +75,7 @@ form * {
     width: 20rem;
     transition: .5s;
 }
-/* -------------------------------------------- Itens do form */
+/* ---------------------------------- Itens do form */
 input, option, #categoria{
     text-align: center;
 }
@@ -65,9 +97,9 @@ input, option, #categoria{
     font-size:medium;
     text-shadow: 1px 1px #0009;
     color: white;
-    background-image: linear-gradient(to left, #060, #ab0205);
-    animation: button 2s infinite alternate;
-    background-size: 200% 100%;
+    background-image: linear-gradient(to bottom, #060, #700000);
+    animation: button 3s infinite alternate;
+    background-size: 100% 200%;
     border-radius: 20px;
 }
 #botao:hover{
@@ -75,16 +107,29 @@ input, option, #categoria{
 }
 @keyframes button { 
     /* animação do botão*/
-    0% {background-position-x: 0%;}
-    100% {background-position-x: 100%;}
+    0% {background-position-y: 0%;}
+    100% {background-position-y: 100%;}
 }
-/* -------------------------------------------- Saida do resultado*/
+/* ---------------------------------- Saida do resultado*/
 #saida{
-    border: solid #060;
+    border: solid #0606;
     color: #fff5;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+/* -------------------------------------------- Alivio cómico*/
+footer{
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    width: 100%;
+}
+footer > img{
+    opacity: 40%;
+    padding: 1rem;
+    width: 2rem;
+    border-radius: 25px;
 }
 /* -------------------------------------------- Responsividade */
 @media (max-width: 500px) { 
@@ -92,17 +137,4 @@ input, option, #categoria{
     form{
         width: 70vw;
     }
-}
-/* -------------------------------------------- Alivio cómico*/
-.meme{
-    display: flex;
-    align-items: center;
-    justify-content:end;
-    width: 100%;
-}
-.meme > img{
-    opacity: 40%;
-    padding: 1rem;
-    width: 2rem;
-    border-radius: 25px;
 }
