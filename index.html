@@ -8,36 +8,39 @@
     <title>Conversor de unidades</title>
 </head>
 <body>
-    <h1>Conversor de Unidades</h1>
-    <form id="meuFormulario">
-        
-        <select name="categoria" id="categoria" required> <!-- escolha de categoria de medidas -->
-            <option disabled selected hidden>Escolha uma categoria</option>
-            <option id="comprimento">Comprimento</option>
-            <option id="peso">Peso</option>
-            <option id="temperatura">Temperatura</option>
-        </select>
-
-        <div class="medidas"> <!-- escolha de unidades de medidas -->
-            <select name="unidadeEntrada" id="unidadeEntrada" required>
-                <option disabled selected>...</option> <!-- mais opções geradas no js -->
+    <header>
+        <h1>Conversor de Unidades</h1>
+    </header>
+    <main>
+        <form id="meuFormulario">
+            
+            <select name="categoria" id="categoria" required> <!-- escolha de categoria de medidas -->
+                <option disabled selected hidden>Escolha uma categoria</option>
+                <option id="comprimento">Comprimento</option>
+                <option id="peso">Peso</option>
+                <option id="temperatura">Temperatura</option>
             </select>
-            <select name="unidadeSaida" id="unidadeSaida" required>
-                <option disabled selected>...</option> <!-- mais opções geradas no js -->
-            </select>
-        </div>
-        
-        <!-- entrada do valor a ser convertido -->
-        <input type="number" name="valor" id="valor" placeholder="Valor a converter" required>
-
-        <button type="submit" id="botao">Converter</button> <!-- botão para enviar o form para o js converter-->
-
-        <div id = saida>Resultado</div> <!-- espaço para imprimir o resultado -->
-        
-    </form>
     
-    <div class="meme"> <!-- alivio cómico -->
+            <div class="medidas"> <!-- escolha de unidades de medidas -->
+                <select name="unidadeEntrada" id="unidadeEntrada" required>
+                    <option disabled selected>...</option> <!-- mais opções geradas no js -->
+                </select>
+                <select name="unidadeSaida" id="unidadeSaida" required>
+                    <option disabled selected>...</option> <!-- mais opções geradas no js -->
+                </select>
+            </div>
+            
+            <!-- entrada do valor a ser convertido -->
+            <input type="number" name="valor" id="valor" placeholder="Valor a converter" required>
+    
+            <button type="submit" id="botao">Converter</button> <!-- botão para enviar o form para o js converter-->
+    
+            <div id = saida>Resultado</div> <!-- espaço para imprimir o resultado -->
+            
+        </form>
+    </main>
+    <footer> <!-- alivio cómico -->
         <img src="src/img/meme.gif" alt="easter egg do lula molusco dançando">
-    </div>
+    </footer>
 </body>
 </html>
